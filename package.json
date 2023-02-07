@@ -1,0 +1,20 @@
+{
+  "name": "authapi",
+  "version": "1.0.0",
+  "description": "Authenticationn API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Promit Revar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.6.0"
+  }
+}
