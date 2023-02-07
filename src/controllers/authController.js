@@ -19,11 +19,13 @@ exports.login = async (req, res) => {
     }
 }
 exports.verifyToken = async (req, res) => {
-    const verify = await services.varifyToken(req.body.token);
-    if(verify){
-        res.status(200).json({success:true});
+    try{
+        const verify = await services.varifyToken(req.headers.authorization);
+        if(verify){
+            res.status(200).json({success:true});
+        }
     }
-    else{
-        res.status(401).json({success:false});
+    catch(error){
+        res.status(401).json({error:error.message,success:false});
     }
 }
