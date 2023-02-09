@@ -1,6 +1,7 @@
 const db = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const utils = require('../utils/insertIntoRedis');
 require('dotenv').config();
 exports.addUser = async(data) => {
     const saltRounds = 10;
@@ -17,6 +18,8 @@ exports.loginVerification = async(data) => {
         const passwordMatch = await bcrypt.compare(password,user.password);
         if(passwordMatch){
             const token = jwt.sign({ username }, process.env.JWT_SECRET,{ expiresIn: '1D' });
+            const redisToken = await utils.insertIntoRedis(token);
+            console.log(redisToken);
             return {token:token,success:true};
         }
     }
