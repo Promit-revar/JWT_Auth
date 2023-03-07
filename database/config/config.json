@@ -3,7 +3,7 @@
     "username": "postgres",
     "password": null,
     "database": "postgres2",
-    "host": "127.0.0.1",
+    "host": "127.0.0.1",     
     "dialect": "postgres"
   },
   "test": {
@@ -11,6 +11,14 @@
     "password": null,
     "database": "postgres2",
     "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "docker":{
+    "username": "postgres",
+    "password": "postgres",
+    "database": "auth",
+    "host": "db",
+    "port": 5432,
     "dialect": "postgres"
   }
 }
